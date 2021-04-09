@@ -9,14 +9,14 @@ mysqlService.mysqlConn('image_captioning').then((connetcion) => {
     mysqlService.query(connetcion, query).then((results) => {
         results.forEach((row) => {
             var txt = row.caption;
-            TranslateService.translate('A dog is laying next to a woman holding a baby.            ', 'fa').then((translatedTxt) => {
+            TranslateService.translate(txt, 'fa').then((translatedTxt) => {
                 console.log('translatedTxt', translatedTxt)
-                // if(translatedTxt != undefined ) {
-                //     var updateQuery = "UPDATE `data_entries` SET `translated_txt`='" +translatedTxt+ "' , is_translated = 1 where id = " + row.id
-                //     mysqlService.query(connetcion, updateQuery).then((updateRes) => {
+                if(translatedTxt != undefined ) {
+                    var updateQuery = "UPDATE `data_entries` SET `translated_txt`='" +translatedTxt+ "' , is_translated = 1 where id = " + row.id
+                    mysqlService.query(connetcion, updateQuery).then((updateRes) => {
                        
-                //     }).catch((err) =>{console.log(err)});
-                // }
+                    }).catch((err) =>{console.log(err)});
+                }
             }).catch((error) => {
                 console.log(error);
             }); 
