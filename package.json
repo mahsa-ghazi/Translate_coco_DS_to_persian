@@ -1,0 +1,24 @@
+{
+  "name": "translate_coco_dataset_to_persian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "image_captioning",
+    "persian",
+    "farsi",
+    "coco",
+    "dataset"
+  ],
+  "author": "mahsa ghazi",
+  "license": "ISC",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "mysql": "^2.18.1"
+  }
+}

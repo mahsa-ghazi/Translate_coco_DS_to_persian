@@ -1,0 +1,26 @@
+version: '3.5'
+services:
+  translate_dataset:
+    build: .
+    restart: always
+    container_name: translateDatasetToFarsi
+    env_file:
+      - .env
+    networks:
+     - translate_dataset_network
+    depends_on:
+     - db
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+     - translate_dataset_network
+
+networks:
+  translate_dataset_network:
+    driver: bridge
+
+
+
+
+
